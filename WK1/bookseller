@@ -4,3 +4,11 @@ In the bookseller's stocklist each code c is followed by a space and by a positi
 
 
         OUTPUT
+def stock_list(stocklist, categories):
+    if not stocklist or not categories:
+        return ""
+    return " - ".join(
+        "({} : {})".format(
+            category,
+            sum(int(item.split()[1]) for item in stocklist if item[0] == category))
+        for category in categories)
