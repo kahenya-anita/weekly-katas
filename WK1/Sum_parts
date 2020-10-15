@@ -13,13 +13,8 @@ The corresponding sums are (put together in a list): [20, 20, 19, 16, 10, 0]
 The function parts_sums (or its variants in other languages) will take as parameter a list ls and return a list of the sums of its parts as defined above.
 
        OUTPUT
-function partsSums(ls) {
-  let res = new Array(ls.length + 1);
-  res[ls.length] = 0;
-  
-  for (let i = ls.length - 1; i >= 0; i--) 
-    res[i] = res[i + 1] + ls[i];
-  
-  return res;
-  
-}
+def parts_sums(ls):
+    result = [sum(ls)]
+    for item in ls:
+        result.append(result[-1]-item)
+    return result
